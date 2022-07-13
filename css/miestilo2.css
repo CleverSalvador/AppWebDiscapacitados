@@ -1,0 +1,24 @@
+body {
+	text-align: center;
+	font-family: sans-serif;
+	 background: linear-gradient(#EAD90A, #2E4BC0);
+}
+
+.boton {
+border: 10px solid #000000; /*anchura, estilo y color borde*/
+padding: 10px; /*espacio alrededor texto*/
+background-color: #000000; /*color botón*/
+color: #ffffff; /*color texto*/
+text-decoration: none; /*decoración texto*/
+text-transform: uppercase; /*capitalización texto*/
+font-family: 'semi bold', sans-serif; /*tipografía texto*/
+border-radius: 30px; /*bordes redondos*/
+display: table;
+justify-content: space-between;
+align-items: center;
+}
+p {
+	text-align: center;
+	
+
+}
