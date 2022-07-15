@@ -7,9 +7,12 @@ let secondResult = null;
 let movimientos = 0;
 let aciertos = 0;
 let temporizador = false;
-let timer = 30;
-let timerInicial = 30;
+let timer = 59;
+let timerInicial = 59;
 let tiempoRegresivoId = null;
+
+let winAudio = new Audio('./sonidos/ganar.wav')
+let loseAudio = new Audio('./sonidos/perder.wav')
 
 // Apuntando a documento HTML
 let mostrarMovimientos = document.getElementById("movimientos");
@@ -28,6 +31,7 @@ function contarTiempo() {
     if (timer < 0) {
       clearInterval(tiempoRegresivoId);
       bloquearTarjetas();
+      loseAudio.play();
     }
   }, 1000, timer);
 }
@@ -77,9 +81,11 @@ function mostrar(id) {
       // Aumentar aciertos
       aciertos++;
       mostrarAciertos.innerHTML = `Aciertos: ${aciertos}`;
+      winAudio.play();
     }
 
     if (aciertos === 8) { 
+      winAudio.play();
       clearInterval(tiempoRegresivoId);
       mostrarAciertos.innerHTML = `Felicidades, has ganado!`;
       mostrarTiempo.innerHTML = `Gnacias, has ganado en ${
@@ -95,6 +101,7 @@ function mostrar(id) {
       tarjeta1.disabled = false;
       tarjeta2.disabled = false;
       tarjetasDestapadas = 0;
+      loseAudio.play();
     }, 200);
   }
 }
